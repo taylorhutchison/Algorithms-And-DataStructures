@@ -4,13 +4,13 @@ using System.Collections.Generic;
 
 namespace Structures {
 
-    public class LinkedList: IEnumerable<Node> {
+    public class LinkedList<T>: IEnumerable<Node<T>> {
        
-        private Node _head;
-        private Node _tail;
-        private Node _current;
+        private Node<T> _head;
+        private Node<T> _tail;
+        private Node<T> _current;
 
-        public IEnumerator<Node> GetEnumerator(){
+        public IEnumerator<Node<T>> GetEnumerator(){
            this._current = this._head;
            while(this._current != null){
                 yield return this._current;
@@ -23,7 +23,7 @@ namespace Structures {
             return this.GetEnumerator();
         }
 
-        public Node Next(){
+        public Node<T> Next(){
             var next = this._current?.Next;
             this._current = next;
             return next;
@@ -33,25 +33,22 @@ namespace Structures {
             this._current = this._head;
         }
 
-        public void Add(Node node){
+        public void Add(Node<T> node){
             this._tail.Next = node;
             this._tail = node;
         }
 
-        public void AddFront(Node node){
+        public void AddFront(Node<T> node){
             node.Next = this._head;
             this._head = node;
         }
 
-        public void AddBack(Node node){
+        public void AddBack(Node<T> node){
             this._tail.Next = node;
             this._tail = node;
         }
 
-        public LinkedList():this(new Node()){
-        }
-
-        public LinkedList(Node node){
+        public LinkedList(Node<T> node){
             this._head = node;
             this._tail = node;
             this._current = node;
