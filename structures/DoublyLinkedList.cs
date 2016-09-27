@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace LinkedLists {
+namespace Structures {
 
 
 public class DoublyLinkedList<T>: IEnumerable<DoubleNode<T>> {
