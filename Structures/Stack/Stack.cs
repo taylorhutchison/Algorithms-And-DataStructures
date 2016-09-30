@@ -1,33 +1,21 @@
+using Structures;
+
 namespace Structures.Stack {
 
-    public class Stack<T> {
-           private const int _initialSize = 4;
-           private int _size;
-           private T[] _items;
+    public class Stack<T>{
+           protected const int _initialSize = 4;
+           protected int _size = 0;
+           protected T[] _items;
 
-           public int Count {get; private set;}
+           public int Count {get; protected set;}
+           
            public int Size {
                get {
                     return _size;
                }
            }
-
-           private void Reallocate(){
-               if(_items==null){
-                   _size = _initialSize;
-                   _items = new T[_size];
-                   Count = 0;
-               }
-               else if(Count == _size){
-                   _size = _size * 2;
-                   var newArray = new T[_size];
-                   _items.CopyTo(newArray,0);
-                   _items = newArray;
-               }
-           }
-
            public void Push (T item){
-               Reallocate();
+               Resize();
                _items[Count] = item;
                Count++;
            }
@@ -40,6 +28,19 @@ namespace Structures.Stack {
                 var item = Peek();
                 Count = Count - 1;
                 return item;
+           }
+           private void Resize(){
+               if(_items==null){
+                   _size = _initialSize;
+                   _items = new T[_size];
+                   Count = 0;
+               }
+               else if(Count == _size){
+                   _size = _size * 2;
+                   var newArray = new T[_size];
+                   _items.CopyTo(newArray,0);
+                   _items = newArray;
+               }
            }
            
     }
