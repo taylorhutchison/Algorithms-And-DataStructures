@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Structures.LinkedList {
 
 
-public class DoublyLinkedList<T>: IEnumerable<DoubleNode<T>> {
+public class DoubleLinkedList<T>: IEnumerable<DoubleNode<T>> {
 
     private DoubleNode<T> _head;
     private DoubleNode<T> _tail;
@@ -55,7 +55,7 @@ public class DoublyLinkedList<T>: IEnumerable<DoubleNode<T>> {
     }
 
 
-    public DoublyLinkedList(DoubleNode<T> node){
+    public DoubleLinkedList(DoubleNode<T> node){
             this._head = node;
             this._tail = node;
             this._current = node;
