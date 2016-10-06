@@ -2,7 +2,7 @@ using System;
 
 namespace Structures.Queue
 {
-    public class Queue<T>{
+    public class Queue<T>: IQueue<T> {
         protected const int _initialSize = 4;
         protected int _size = 0;
         protected T[] _items;

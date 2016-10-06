@@ -9,7 +9,7 @@ namespace Tests {
 
         [Fact]
         public void Enqueue_And_Dequeue_Single_Item(){
-            var queue = new Queue<int>(4);
+            IQueue<int> queue = new Queue<int>(4);
             queue.Enqueue(1);
             var item = queue.Dequeue();
             Assert.Equal(1, item);
@@ -17,7 +17,7 @@ namespace Tests {
 
         [Fact]
         public void Enqueue_And_Dequeue_Multiple_Items(){
-            var queue = new Queue<int>(4);
+            IQueue<int> queue = new Queue<int>(4);
             queue.Enqueue(1);
             queue.Enqueue(2);
             queue.Enqueue(3);
@@ -30,7 +30,7 @@ namespace Tests {
 
         [Fact]
         public void Force_Queue_To_Resize(){
-            var queue = new Queue<int>(3);
+            IQueue<int> queue = new Queue<int>(3);
             queue.Enqueue(1);
             queue.Enqueue(2);
             queue.Enqueue(3);
