@@ -14,6 +14,8 @@ This project demonstrates some fundamental Computer Science concepts. The projec
     - Stack&lt;T&gt; (Implemented With Array)
  - Queue
     - Queue&lt;T&gt; (Implemented with Array)
+    - LinkedListQueue&lt;T&gt; (Implemented with a Linked List)
+    - PriorityQueue &lt;T&gt; (Implemented with a Linked List)
 
 ## Instructions to run the tests:
 1. Install .NET Core for your platform: [https://www.microsoft.com/net/core](https://www.microsoft.com/net/core)
