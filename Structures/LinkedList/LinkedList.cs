@@ -28,6 +28,12 @@ namespace Structures.LinkedList {
             this.Current = next;
             return next;
         }
+
+        public Node<T> RemoveHead(){
+            var head = Head;
+            Head = Head.Next;
+            return head;
+        }
         
         public void Reset(){
             this.Current = this.Head;

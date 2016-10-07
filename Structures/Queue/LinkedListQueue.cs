@@ -4,6 +4,7 @@ namespace Structures.Queue {
 
     public class LinkedListQueue<T>: IQueue<T>{
         private LinkedList<T> queue;
+        private int _count = 0;
         public void Enqueue(T item){
             var node = new Node<T>(item);
             if(queue==null){
@@ -12,18 +13,20 @@ namespace Structures.Queue {
             else {
                 queue.AddBack(node);
             }
+            _count++;
         }
 
         public T Dequeue(){
-            return queue.Head.Value;
+            _count--;
+            return queue.RemoveHead().Value;
         }
 
         public T Peek(){
             return queue.Head.Value;
         }
 
-        public int Count { get {return 0;}}
-        public int Size { get {return 0;}}
+        public int Count { get {return _count;}}
+        public int Size { get {return Count;}}
     }
 
 }
