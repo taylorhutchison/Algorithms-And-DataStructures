@@ -1,16 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Structures;
 
 namespace Structures.LinkedList {
 
-    public class LinkedList<T>: IEnumerable<Node<T>> {
+    public class LinkedList<T>: IEnumerable<INode<T>> {
 
-        public Node<T> Head {get; private set;}
-        public Node<T> Tail {get; private set;}
-        public Node<T> Current {get; private set;}
+        public INode<T> Head {get; private set;}
+        public INode<T> Tail {get; private set;}
+        public INode<T> Current {get; private set;}
 
-        public IEnumerator<Node<T>> GetEnumerator(){
+        public IEnumerator<INode<T>> GetEnumerator(){
            this.Current = this.Head;
            while(this.Current != null){
                 yield return this.Current;
@@ -23,13 +24,13 @@ namespace Structures.LinkedList {
             return this.GetEnumerator();
         }
 
-        public Node<T> Next(){
+        public INode<T> Next(){
             var next = this.Current?.Next;
             this.Current = next;
             return next;
         }
 
-        public Node<T> RemoveHead(){
+        public INode<T> RemoveHead(){
             var head = Head;
             Head = Head.Next;
             return head;
@@ -39,7 +40,7 @@ namespace Structures.LinkedList {
             this.Current = this.Head;
         }
 
-        public void Add(Node<T> node){
+        public void Add(INode<T> node){
             if(this.Head == null){
                 this.Head = node;
                 this.Tail = node;
@@ -51,19 +52,19 @@ namespace Structures.LinkedList {
             }
         }
 
-        public void AddFront(Node<T> node){
+        public void AddFront(INode<T> node){
             node.Next = this.Head;
             this.Head = node;
         }
 
-        public void AddBack(Node<T> node){
+        public void AddBack(INode<T> node){
             this.Tail.Next = node;
             this.Tail = node;
         }
 
         public LinkedList(){}
 
-        public LinkedList(Node<T> node){
+        public LinkedList(INode<T> node){
             this.Head = node;
             this.Tail = node;
             this.Current = node;

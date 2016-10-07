@@ -1,4 +1,4 @@
-namespace Structures.LinkedList {
+namespace Structures {
 
 public class DoubleNode<T> {
 

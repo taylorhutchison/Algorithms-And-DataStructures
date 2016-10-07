@@ -2,7 +2,7 @@ using Xunit;
 using System;
 using System.Linq;
 using Structures.LinkedList;
-
+using Structures;
 namespace Tests
 {
     public class LinkedListTests
@@ -10,7 +10,8 @@ namespace Tests
         private LinkedList<int> CreateList(int[] numbers){
             var ll = new LinkedList<int>();
             foreach(var num in numbers){
-                ll.Add(new Node<int>(num));
+                INode<int> node = new Node<int>(num);
+                ll.Add(node);
             }
             return ll;
         }
